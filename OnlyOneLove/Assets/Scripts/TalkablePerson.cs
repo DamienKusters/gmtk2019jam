@@ -7,6 +7,12 @@ public class TalkablePerson : MonoBehaviour
     public ChoiceButton ConversationManager;
     public bool CanBeClicked = true;
 
+    public string Hobby = "Shopping";
+    public string Location = "The Park";
+    public string Animal = "Dogs";
+    public int FavGiftId = 1;
+    public string Greeting = "Hallo Pik!";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +25,26 @@ public class TalkablePerson : MonoBehaviour
 
     }
 
+    public string TellAboutHobby()
+    {
+        return "My primary hobby is " + Hobby;
+    }
+
+    public string TellAboutLocation()
+    {
+        return "I love to go to " + Hobby;
+    }
+
+    public string TellAboutAnimal()
+    {
+        return "I realy like " + Animal;
+    }
+
     void OnMouseDown()
     {
         if (CanBeClicked)
         {
-            ConversationManager.EnableConversation(gameObject);
+            ConversationManager.EnableConversation(gameObject.GetComponent<TalkablePerson>());
             transform.localScale = new Vector3(4F, 4F, 4F);
         }
     }

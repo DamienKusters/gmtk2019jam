@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChoiceButton : MonoBehaviour
 {
+    public Text DialogBox;
     public PeopleSpawner PeopleManager;
     public BuildingsManager BuildingManager;
     public GameObject ConversationUI;
     public GameObject HudUI;
     public GameObject[] Buttons = new GameObject[6];
+
+    TalkablePerson Stranger;
 
     // Start is called before the first frame update
     void Start()
@@ -22,15 +26,22 @@ public class ChoiceButton : MonoBehaviour
         
     }
 
-    public void EnableConversation(GameObject person)
+    public void EnableConversation(TalkablePerson person)
     {
+        //Disable clicking on people & buildings
         PeopleManager.EnableClicksOnChildren(false);
         BuildingManager.EnableClicksOnChildren(false);
 
+        Stranger = person;
+
+        DialogBox.text = Stranger.Greeting;
+
+        //Reset buttons
         EnableTier1Buttons(true);
         EnableTierQuestionButtons(false);
         EnableTierQuestion2Buttons(false);
 
+        //Switch out Hud with Conversation UI
         ConversationUI.SetActive(true);
         HudUI.SetActive(false);
     }
