@@ -8,6 +8,7 @@ public class ChoiceButton : MonoBehaviour
     public Text DialogBox;
     public Image StrangerImage;
     public Image StrangerFavItem;
+    public InterestsRandomizer playerInterests;
     public PlayerInventoryManager GiftTextures;
     public PeopleSpawner PeopleManager;
     public BuildingsManager BuildingManager;
@@ -56,26 +57,60 @@ public class ChoiceButton : MonoBehaviour
         switch (id)
         {
             case 0://Introduction
-                EnableTier1Buttons(false);
+                PeopleManager.EnableClicksOnChildren(true);
+                BuildingManager.EnableClicksOnChildren(true);
+                ConversationUI.SetActive(false);
+                HudUI.SetActive(true);
                 break;
             case 1://Question
+
+                if (Stranger.personKnowsStranger)
+                {
+                    DialogBox.text = "Sorry, but I don't have time for so many questions.";
+                    return;
+                }
+
                 EnableTier1Buttons(false);
                 EnableTierQuestionButtons(true);
                 break;
             case 2://Date
-                Debug.Log("Ask on date");
+                if(!Stranger.personKnowsStranger)
+                {
+                    DialogBox.text = "What?! No WAY! You don't even know me.";
+                    return;
+                }
+
+                if (Stranger.personIsAboutToMatch)
+                    Debug.Log("Ask on date");
+                else
+                {
+                    DialogBox.text = "Sorry, but no. I don't think we fit for each other.";
+                    return;
+                }
                 break;
             case 10://Question 1
                 EnableTierQuestionButtons(false);
                 EnableTierQuestion2Buttons(true);
+                DialogBox.text = Stranger.TellAboutHobby();
+                Stranger.personKnowsStranger = true;
+                if (playerInterests.playerHobbyId == Stranger.HobbyId)
+                    Stranger.personIsAboutToMatch = true;
                 break;
             case 11://Question 2
                 EnableTierQuestionButtons(false);
                 EnableTierQuestion2Buttons(true);
+                DialogBox.text = Stranger.TellAboutLocation();
+                Stranger.personKnowsStranger = true;
+                if (playerInterests.playerLocationId == Stranger.LocationId)
+                    Stranger.personIsAboutToMatch = true;
                 break;
             case 12://Question 3
                 EnableTierQuestionButtons(false);
                 EnableTierQuestion2Buttons(true);
+                DialogBox.text = Stranger.TellAboutAnimal();
+                Stranger.personKnowsStranger = true;
+                if (playerInterests.playerAnimalId == Stranger.AnimalId)
+                    Stranger.personIsAboutToMatch = true;
                 break;
             case 13://Question Exit
                 PeopleManager.EnableClicksOnChildren(true);

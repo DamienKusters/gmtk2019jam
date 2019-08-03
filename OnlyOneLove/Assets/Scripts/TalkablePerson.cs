@@ -7,9 +7,13 @@ public class TalkablePerson : MonoBehaviour
     public ChoiceButton ConversationManager;
     public bool CanBeClicked = true;
 
-    public string Hobby = "Shopping";
-    public string Location = "The Park";
-    public string Animal = "Dogs";
+    public int HobbyId;
+    public int LocationId;
+    public int AnimalId;
+
+    public bool personKnowsStranger = false;
+    public bool personIsAboutToMatch = false;
+
     public int FavGiftId = 1;
     public string Greeting = "Hallo Pik!";
     public Sprite Sprite;
@@ -28,17 +32,66 @@ public class TalkablePerson : MonoBehaviour
 
     public string TellAboutHobby()
     {
-        return "My primary hobby is " + Hobby;
+        string prefix = "My primary hobby is ";
+
+        switch (HobbyId)
+        {
+            case 0:
+                return prefix + "shopping.";
+                break;
+            case 1:
+                return prefix + "cooking.";
+                break;
+            case 2:
+                return prefix + "jogging.";
+                break;
+            default:
+                return "Glitch in the Matrix";
+                break;
+        }
     }
 
     public string TellAboutLocation()
     {
-        return "I love to go to " + Hobby;
+        string prefix = "I love to go to ";
+
+        switch (LocationId)
+        {
+            case 0:
+                return prefix + "the park.";
+                break;
+            case 1:
+                return prefix + "a forest.";
+                break;
+            case 2:
+                return prefix + "a lake.";
+                break;
+            default:
+                return "Glitch in the Matrix";
+                break;
+
+        }
     }
 
     public string TellAboutAnimal()
     {
-        return "I realy like " + Animal;
+        string prefix = "I realy like ";
+
+        switch (AnimalId)
+        {
+            case 0:
+                return prefix + "dogs.";
+                break;
+            case 1:
+                return prefix + "cats.";
+                break;
+            case 2:
+                return prefix + "guinea pigs.";
+                break;
+            default:
+                return "Glitch in the Matrix";
+                break;
+        }
     }
 
     void OnMouseDown()
