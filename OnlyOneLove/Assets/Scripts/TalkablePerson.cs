@@ -18,6 +18,7 @@ public class TalkablePerson : MonoBehaviour
     public bool knowsHobby = false;
     public bool knowsLocation = false;
     public bool knowsAnimal = false;
+    public bool uitgepraat = false;
 
     public int FavGiftId = 1;
     public string Greeting = "Hallo Pik!";

@@ -170,15 +170,99 @@ public class ChoiceButton : MonoBehaviour
 
                 break;
             case 21://Date about yourself
+
+                if(Stranger.uitgepraat)
+                {
+                    DialogBox.text = "I think we've already discussed everything.";
+                    return;
+                }
+
                 DialogBox.text = "What do you want to talk about?";
 
                 EnableTierDateButtons(false);
                 EnableTierDate2Buttons(true);
                 break;
+            case 22://Confess!!!!!!!!!!
+                break;
+            case 30://Talk hobbies
+
+                if(Stranger.knowsHobby)
+                {
+                    DialogBox.text = "We've already discussed that...";
+                    return;
+                }
+                Stranger.knowsHobby = true;
+
+                if (Stranger.HobbyId == playerInterests.playerHobbyId)
+                {
+                    DialogBox.text = "Oh realy?! I like that hobby too!";
+                    if (CheckIfUitgepraat())
+                        SetIsUitgepraat();
+                    return;
+                }
+
+                DialogBox.text = "Hmm, I myself aint the right person for that activity.";
+                SetIsUitgepraat();
+                break;
+            case 31://Talk location
+
+                if (Stranger.knowsLocation)
+                {
+                    DialogBox.text = "You know my preference, we just talked about it...";
+                    return;
+                }
+                Stranger.knowsLocation = true;
+
+                if (Stranger.LocationId == playerInterests.playerLocationId)
+                {
+                    DialogBox.text = "I agree! I find that outing to be amazing as well!";
+                    if (CheckIfUitgepraat())
+                        SetIsUitgepraat();
+                    return;
+                }
+
+                DialogBox.text = "I'd rather go somewhere else. I don't like that place at all!";
+                SetIsUitgepraat();
+                break;
+            case 32://Talk animal
+                if (Stranger.knowsAnimal)
+                {
+                    DialogBox.text = "We've already been over that topic, just a moment ago...";
+                    return;
+                }
+                Stranger.knowsAnimal = true;
+
+                if (Stranger.AnimalId == playerInterests.playerAnimalId)
+                {
+                    DialogBox.text = "Those creatures are adorable right?!";
+
+                    if (CheckIfUitgepraat())
+                        SetIsUitgepraat();
+
+                    return;
+                }
+
+                DialogBox.text = "Hate to break it to you, but I absolutely despise those creatures.";
+                SetIsUitgepraat();
+
+                break;
             default:
                 break;
         }
     }
+
+    void SetIsUitgepraat()
+    {
+        Stranger.uitgepraat = true;
+        EnableTierDate2Buttons(false);
+        EnableTierDateButtons(true);
+    }
+
+    bool CheckIfUitgepraat()
+    {
+        return Stranger.knowsHobby && Stranger.knowsLocation && Stranger.knowsAnimal;
+    }
+
 
     void EnableTier1Buttons(bool enabled)
     {

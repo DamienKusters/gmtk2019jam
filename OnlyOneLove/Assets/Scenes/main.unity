@@ -1938,6 +1938,7 @@ MonoBehaviour:
   knowsHobby: 0
   knowsLocation: 0
   knowsAnimal: 0
+  uitgepraat: 0
   FavGiftId: 1
   Greeting: Hallo Pik!
   Sprite: {fileID: 21300000, guid: 312a0ba6f0bee304ca71c9f205568a7d, type: 3}
@@ -2720,6 +2721,7 @@ MonoBehaviour:
   knowsHobby: 0
   knowsLocation: 0
   knowsAnimal: 0
+  uitgepraat: 0
   FavGiftId: 1
   Greeting: Hallo Pik!
   Sprite: {fileID: 21300000, guid: f4c4649a83d4411479bb379fbbb92a6f, type: 3}
@@ -3092,6 +3094,7 @@ MonoBehaviour:
   knowsHobby: 0
   knowsLocation: 0
   knowsAnimal: 0
+  uitgepraat: 0
   FavGiftId: 1
   Greeting: Hallo Pik!
   Sprite: {fileID: 21300000, guid: bb67549fd74e841458f428818411fe84, type: 3}
@@ -3552,6 +3555,7 @@ MonoBehaviour:
   knowsHobby: 0
   knowsLocation: 0
   knowsAnimal: 0
+  uitgepraat: 0
   FavGiftId: 1
   Greeting: Hallo Pik!
   Sprite: {fileID: 21300000, guid: 3cd5c6c96ccd8e94bab554253e38f49f, type: 3}
@@ -5325,6 +5329,7 @@ MonoBehaviour:
   knowsHobby: 0
   knowsLocation: 0
   knowsAnimal: 0
+  uitgepraat: 0
   FavGiftId: 1
   Greeting: Hallo Pik!
   Sprite: {fileID: 21300000, guid: bd7ad6ecdf2c6044ea045d6983882ae1, type: 3}
@@ -7257,7 +7262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1882687125
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7839,6 +7844,7 @@ MonoBehaviour:
   knowsHobby: 0
   knowsLocation: 0
   knowsAnimal: 0
+  uitgepraat: 0
   FavGiftId: 1
   Greeting: Hallo Pik!
   Sprite: {fileID: 21300000, guid: 66e5c16e0daed9244b8fdd334734cf81, type: 3}
@@ -8477,6 +8483,7 @@ MonoBehaviour:
   knowsHobby: 0
   knowsLocation: 0
   knowsAnimal: 0
+  uitgepraat: 0
   FavGiftId: 1
   Greeting: Hallo Pik!
   Sprite: {fileID: 21300000, guid: 5f06120dbf1d077458257d5dec476cc0, type: 3}
