@@ -8,10 +8,21 @@ public class ChoiceButton : MonoBehaviour
     public Text DialogBox;
     public Image StrangerImage;
     public Image StrangerFavItem;
+
     public InterestsRandomizer playerInterests;
+
+    public GameObject PlazaBackground;
+    public GameObject DateBackground;
+
+    public AudioSource Player;
+    public AudioClip PlazaBgm;
+    public AudioClip DatingBgm;
+
     public PlayerInventoryManager GiftTextures;
+
     public PeopleSpawner PeopleManager;
     public BuildingsManager BuildingManager;
+
     public GameObject ConversationUI;
     public GameObject HudUI;
     public GameObject[] Buttons = new GameObject[6];
@@ -32,6 +43,10 @@ public class ChoiceButton : MonoBehaviour
 
     public void EnableConversation(TalkablePerson person)
     {
+        //Reset background
+        PlazaBackground.SetActive(true);
+        DateBackground.SetActive(false);
+
         //Disable clicking on people & buildings
         PeopleManager.EnableClicksOnChildren(false);
         BuildingManager.EnableClicksOnChildren(false);
@@ -45,6 +60,7 @@ public class ChoiceButton : MonoBehaviour
         //Reset buttons
         EnableTier1Buttons(true);
         EnableTierQuestionButtons(false);
+        EnableTierDateButtons(false);
         EnableTierQuestion2Buttons(false);
 
         //Switch out Hud with Conversation UI
@@ -69,6 +85,7 @@ public class ChoiceButton : MonoBehaviour
                     DialogBox.text = "Sorry, but I don't have time for so many questions.";
                     return;
                 }
+                DialogBox.text = "What do you want to ask?";
 
                 EnableTier1Buttons(false);
                 EnableTierQuestionButtons(true);
@@ -79,14 +96,29 @@ public class ChoiceButton : MonoBehaviour
                     DialogBox.text = "What?! No WAY! You don't even know me.";
                     return;
                 }
-
-                if (Stranger.personIsAboutToMatch)
-                    Debug.Log("Ask on date");
-                else
+                if (!Stranger.personIsAboutToMatch)
                 {
                     DialogBox.text = "Sorry, but no. I don't think we fit for each other.";
                     return;
                 }
+                if(Stranger.FavGiftId != GiftTextures.ItemId)
+                {
+                    DialogBox.text = "Nah, if you bring me something nice, I'll reconsider.";
+                    return;
+                }
+
+                GiftTextures.ItemId = 0;
+                DialogBox.text = "What a beautiful evening isn't it?";
+
+                PlazaBackground.SetActive(false);
+                DateBackground.SetActive(true);
+
+                Player.enabled = true;
+                Player.clip = DatingBgm;
+                Player.Play();
+
+                EnableTierDateButtons(true);
+
                 break;
             case 10://Question 1
                 EnableTierQuestionButtons(false);
@@ -118,6 +150,31 @@ public class ChoiceButton : MonoBehaviour
                 ConversationUI.SetActive(false);
                 HudUI.SetActive(true);
                 break;
+            case 20://Date leave
+                PlazaBackground.SetActive(true);
+                DateBackground.SetActive(false);
+
+                Player.enabled = true;
+                Player.clip = PlazaBgm;
+                Player.Play();
+
+                PeopleManager.EnableClicksOnChildren(true);
+                BuildingManager.EnableClicksOnChildren(true);
+                ConversationUI.SetActive(false);
+                HudUI.SetActive(true);
+
+                Stranger.gameObject.SetActive(false);
+
+                if (Stranger.isTrueLove)
+                    Debug.Log("GAME OVER - You dumped your true love");
+
+                break;
+            case 21://Date about yourself
+                DialogBox.text = "What do you want to talk about?";
+
+                EnableTierDateButtons(false);
+                EnableTierDate2Buttons(true);
+                break;
             default:
                 break;
         }
@@ -135,6 +192,20 @@ public class ChoiceButton : MonoBehaviour
         Buttons[3].SetActive(enabled);
         Buttons[4].SetActive(enabled);
         Buttons[5].SetActive(enabled);
+    }
+
+    void EnableTierDateButtons(bool enabled)
+    {
+        Buttons[7].SetActive(enabled);
+        Buttons[8].SetActive(enabled);
+        Buttons[9].SetActive(enabled);
+    }
+
+    void EnableTierDate2Buttons(bool enabled)
+    {
+        Buttons[10].SetActive(enabled);
+        Buttons[11].SetActive(enabled);
+        Buttons[12].SetActive(enabled);
     }
 
     void EnableTierQuestion2Buttons(bool enabled)

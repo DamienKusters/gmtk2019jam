@@ -13,6 +13,11 @@ public class TalkablePerson : MonoBehaviour
 
     public bool personKnowsStranger = false;
     public bool personIsAboutToMatch = false;
+    public bool isTrueLove = false;
+
+    public bool knowsHobby = false;
+    public bool knowsLocation = false;
+    public bool knowsAnimal = false;
 
     public int FavGiftId = 1;
     public string Greeting = "Hallo Pik!";
@@ -49,6 +54,7 @@ public class TalkablePerson : MonoBehaviour
                 return "Glitch in the Matrix";
                 break;
         }
+        knowsHobby = true;
     }
 
     public string TellAboutLocation()
@@ -71,6 +77,7 @@ public class TalkablePerson : MonoBehaviour
                 break;
 
         }
+        knowsLocation = true;
     }
 
     public string TellAboutAnimal()
@@ -92,6 +99,7 @@ public class TalkablePerson : MonoBehaviour
                 return "Glitch in the Matrix";
                 break;
         }
+        knowsAnimal = true;
     }
 
     void OnMouseDown()
