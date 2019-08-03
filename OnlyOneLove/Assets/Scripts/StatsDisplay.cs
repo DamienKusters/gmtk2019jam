@@ -25,7 +25,7 @@ public class StatsDisplay : MonoBehaviour
         if(StatsPanel.active)
         {
             StatsPanel.SetActive(false);
-            text.text = "Your Preferences";
+            text.text = "Information";
         }
         else
         {

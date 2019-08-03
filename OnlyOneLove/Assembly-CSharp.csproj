@@ -55,14 +55,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BuildingsManager.cs" />
-     <Compile Include="Assets\CreditsDisplay.cs" />
-     <Compile Include="Assets\PeopleSpawner.cs" />
-     <Compile Include="Assets\PlayerInventoryManager.cs" />
+     <Compile Include="Assets\Scripts\BuildingsManager.cs" />
      <Compile Include="Assets\Scripts\ChoiceButton.cs" />
+     <Compile Include="Assets\Scripts\CreditsDisplay.cs" />
+     <Compile Include="Assets\Scripts\InterestsRandomizer.cs" />
+     <Compile Include="Assets\Scripts\PeopleSpawner.cs" />
+     <Compile Include="Assets\Scripts\PlayerInventoryManager.cs" />
+     <Compile Include="Assets\Scripts\StatsDisplay.cs" />
+     <Compile Include="Assets\Scripts\Store.cs" />
      <Compile Include="Assets\Scripts\TalkablePerson.cs" />
-     <Compile Include="Assets\StatsDisplay.cs" />
-     <Compile Include="Assets\Store.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>H:/gmtk2019jam/OnlyOneLove/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
