@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class TalkablePerson : MonoBehaviour
 {
+    public ChoiceButton ConversationManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log(ConversationManager);
     }
 
     // Update is called once per frame
@@ -19,5 +21,6 @@ public class TalkablePerson : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("click");
+        ConversationManager.EnableConversation(gameObject);
     }
 }

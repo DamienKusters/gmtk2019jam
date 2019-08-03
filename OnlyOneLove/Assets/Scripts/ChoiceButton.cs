@@ -20,6 +20,16 @@ public class ChoiceButton : MonoBehaviour
         
     }
 
+    public void EnableConversation(GameObject person)
+    {
+        EnableTier1Buttons(true);
+        EnableTierQuestionButtons(false);
+        EnableTierQuestion2Buttons(false);
+
+        ConversationUI.SetActive(true);
+        HudUI.SetActive(false);
+    }
+
     public void ClickConversationButton(int id)
     {
         switch (id)
@@ -47,8 +57,6 @@ public class ChoiceButton : MonoBehaviour
                 EnableTierQuestion2Buttons(true);
                 break;
             case 13://Question Exit
-                EnableTier1Buttons(true);
-                EnableTierQuestion2Buttons(false);
                 ConversationUI.SetActive(false);
                 HudUI.SetActive(true);
                 break;
