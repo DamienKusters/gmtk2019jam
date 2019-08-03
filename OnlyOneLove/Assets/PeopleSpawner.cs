@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class PeopleSpawner : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public string[] Greetings = new string[6];
+
     void Start()
     {
-        
+        for (int i = 0; i < this.gameObject.transform.childCount; i++)
+        {
+            var Woman = this.gameObject.transform.GetChild(i).GetComponent<TalkablePerson>();
+            Woman.Greeting = Greetings[Random.Range(0, 6)];
+            Debug.Log(Woman.Greeting);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
         

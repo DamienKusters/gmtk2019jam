@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ChoiceButton : MonoBehaviour
 {
     public Text DialogBox;
+    public Image StrangerFavItem;
     public PeopleSpawner PeopleManager;
     public BuildingsManager BuildingManager;
     public GameObject ConversationUI;
