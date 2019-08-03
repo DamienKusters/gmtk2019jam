@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ChoiceButton : MonoBehaviour
 {
+    public PeopleSpawner PeopleManager;
+    public BuildingsManager BuildingManager;
     public GameObject ConversationUI;
     public GameObject HudUI;
     public GameObject[] Buttons = new GameObject[6];
@@ -22,6 +24,9 @@ public class ChoiceButton : MonoBehaviour
 
     public void EnableConversation(GameObject person)
     {
+        PeopleManager.EnableClicksOnChildren(false);
+        BuildingManager.EnableClicksOnChildren(false);
+
         EnableTier1Buttons(true);
         EnableTierQuestionButtons(false);
         EnableTierQuestion2Buttons(false);
@@ -57,6 +62,8 @@ public class ChoiceButton : MonoBehaviour
                 EnableTierQuestion2Buttons(true);
                 break;
             case 13://Question Exit
+                PeopleManager.EnableClicksOnChildren(true);
+                BuildingManager.EnableClicksOnChildren(true);
                 ConversationUI.SetActive(false);
                 HudUI.SetActive(true);
                 break;

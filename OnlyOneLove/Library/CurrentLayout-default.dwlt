@@ -384,9 +384,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 76fbffffc631000024320000ea320000
+      m_SelectedIDs: 38320000
+      m_LastClickedID: 12856
+      m_ExpandedIDs: 76fbffffc6310000023200003832000078320000e8320000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -446,9 +446,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.13, y: 0.3, z: -4.5}
+    m_Target: {x: 444.66205, y: 218.36978, z: -31.52679}
     speed: 2
-    m_Value: {x: -1.13, y: 0.3, z: -4.5}
+    m_Value: {x: 444.66205, y: 218.36978, z: -31.52679}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -481,9 +481,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1.6166636
+    m_Target: 651.9905
     speed: 2
-    m_Value: 1.6166636
+    m_Value: 651.9905
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 13112
+  m_LastSelectedObjectID: 12802
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -603,19 +603,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Sprites/fonts
   m_ViewMode: 1
   m_StartGridSize: 48
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Sprites/fonts
   m_LastFoldersGridSize: 48
   m_LastProjectPath: H:\gmtk2019jam\OnlyOneLove
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: bc2e0000
-    m_LastClickedID: 11964
+    m_SelectedIDs: b02f0000
+    m_LastClickedID: 12208
     m_ExpandedIDs: 000000001a2d00000830000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0

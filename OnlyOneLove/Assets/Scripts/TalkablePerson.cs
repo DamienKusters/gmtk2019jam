@@ -5,11 +5,12 @@ using UnityEngine;
 public class TalkablePerson : MonoBehaviour
 {
     public ChoiceButton ConversationManager;
+    public bool CanBeClicked = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(ConversationManager);
+
     }
 
     // Update is called once per frame
@@ -20,7 +21,22 @@ public class TalkablePerson : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("click");
-        ConversationManager.EnableConversation(gameObject);
+        if (CanBeClicked)
+        {
+            ConversationManager.EnableConversation(gameObject);
+            transform.localScale = new Vector3(4F, 4F, 4F);
+        }
+    }
+
+    void OnMouseEnter()
+    {
+        if (CanBeClicked)
+            transform.localScale += new Vector3(1F, 1F, 1F);
+    }
+
+    void OnMouseExit()
+    {
+        if (CanBeClicked)
+            transform.localScale = new Vector3(4F, 4F, 4F);
     }
 }
