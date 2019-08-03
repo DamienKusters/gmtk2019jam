@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class ChoiceButton : MonoBehaviour
 {
     public Text DialogBox;
+    public Image StrangerImage;
     public Image StrangerFavItem;
+    public PlayerInventoryManager GiftTextures;
     public PeopleSpawner PeopleManager;
     public BuildingsManager BuildingManager;
     public GameObject ConversationUI;
@@ -36,6 +38,8 @@ public class ChoiceButton : MonoBehaviour
         Stranger = person;
 
         DialogBox.text = Stranger.Greeting;
+        StrangerFavItem.sprite = GiftTextures.GiftSprites[Stranger.FavGiftId];
+        StrangerImage.sprite = Stranger.Sprite;
 
         //Reset buttons
         EnableTier1Buttons(true);

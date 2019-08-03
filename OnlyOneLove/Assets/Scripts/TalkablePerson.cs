@@ -12,6 +12,7 @@ public class TalkablePerson : MonoBehaviour
     public string Animal = "Dogs";
     public int FavGiftId = 1;
     public string Greeting = "Hallo Pik!";
+    public Sprite Sprite;
 
     // Start is called before the first frame update
     void Start()

@@ -12,7 +12,7 @@ public class PeopleSpawner : MonoBehaviour
         {
             var Woman = this.gameObject.transform.GetChild(i).GetComponent<TalkablePerson>();
             Woman.Greeting = Greetings[Random.Range(0, 6)];
-            Debug.Log(Woman.Greeting);
+            Woman.FavGiftId = Random.Range(1, 6);
         }
     }
 
