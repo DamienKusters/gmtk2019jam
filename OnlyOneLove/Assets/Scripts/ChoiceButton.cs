@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ChoiceButton : MonoBehaviour
 {
     public Text DialogBox;
+    public GameObject ConfessBox;
     public Image StrangerImage;
     public Image StrangerFavItem;
 
@@ -62,6 +63,7 @@ public class ChoiceButton : MonoBehaviour
         EnableTierQuestionButtons(false);
         EnableTierDateButtons(false);
         EnableTierQuestion2Buttons(false);
+        ConfessBox.SetActive(false);
 
         //Switch out Hud with Conversation UI
         ConversationUI.SetActive(true);
@@ -182,7 +184,8 @@ public class ChoiceButton : MonoBehaviour
                 EnableTierDateButtons(false);
                 EnableTierDate2Buttons(true);
                 break;
-            case 22://Confess!!!!!!!!!!
+            case 22://Confess
+                ConfessBox.SetActive(true);
                 break;
             case 30://Talk hobbies
 
@@ -244,6 +247,12 @@ public class ChoiceButton : MonoBehaviour
 
                 DialogBox.text = "Hate to break it to you, but I absolutely despise those creatures.";
                 SetIsUitgepraat();
+
+                break;
+            case 40://cancel
+                ConfessBox.SetActive(false);
+                break;
+            case 41://CONFESS!!!!!!!!!!!!!!!!!!!!!
 
                 break;
             default:
