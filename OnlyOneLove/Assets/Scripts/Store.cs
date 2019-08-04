@@ -28,7 +28,7 @@ public class Store : MonoBehaviour
         if (CanBeClicked)
         {
             clickoverSoundPlayer.Play();
-            transform.localScale = new Vector3(2F, 2F, 2F);
+            transform.localScale = new Vector3(.6F, .6F, .6F);
             Inventory.ItemId = ProductId;
         }
     }
@@ -38,13 +38,13 @@ public class Store : MonoBehaviour
         if (CanBeClicked)
         {
             hoverSoundPlayer.Play();
-            transform.localScale += new Vector3(.1F, .1F, .1F);
+            transform.localScale += new Vector3(.05F, .05F, .05F);
         }
     }
 
     void OnMouseExit()
     {
         if (CanBeClicked)
-            transform.localScale = new Vector3(2F, 2F, 2F);
+            transform.localScale = new Vector3(.6F, .6F, .6F);
     }
 }
