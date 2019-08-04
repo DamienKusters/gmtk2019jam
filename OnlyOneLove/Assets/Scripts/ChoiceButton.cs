@@ -26,6 +26,15 @@ public class ChoiceButton : MonoBehaviour
 
     public GameObject ConversationUI;
     public GameObject HudUI;
+    public GameObject DateCard;
+    public float DatecardTime = 5;
+    public GameObject EndingUI;
+        public Text EndingUIHeader;
+
+    public AudioSource AudioPlayer;
+    public AudioClip BadAudio;
+    public AudioClip GoodAudio;
+
     public GameObject[] Buttons = new GameObject[6];
 
     TalkablePerson Stranger;
@@ -39,7 +48,17 @@ public class ChoiceButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(DateCard.active)
+        {
+            DateBackground.SetActive(false);
+            DatecardTime -= Time.deltaTime;
+            if (DatecardTime < 0)
+            {
+                DatecardTime = 5F;
+                DateCard.SetActive(false);
+                DateBackground.SetActive(true);
+            }
+        }
     }
 
     public void EnableConversation(TalkablePerson person)
@@ -109,11 +128,12 @@ public class ChoiceButton : MonoBehaviour
                     return;
                 }
 
+                DateCard.SetActive(true);
+
                 GiftTextures.ItemId = 0;
                 DialogBox.text = "What a beautiful evening isn't it?";
 
                 PlazaBackground.SetActive(false);
-                DateBackground.SetActive(true);
 
                 Player.enabled = true;
                 Player.clip = DatingBgm;
@@ -153,6 +173,18 @@ public class ChoiceButton : MonoBehaviour
                 HudUI.SetActive(true);
                 break;
             case 20://Date leave
+                if (Stranger.isTrueLove)
+                {
+                    if (Stranger.isTrueLove)
+                        EndingUIHeader.text = "You ABANDONED your 'true love'";
+
+                    AudioPlayer.clip = BadAudio;
+                    AudioPlayer.Play();
+                    ConversationUI.SetActive(false);
+                    EndingUI.SetActive(true);
+                    return;
+                }
+
                 PlazaBackground.SetActive(true);
                 DateBackground.SetActive(false);
 
@@ -166,10 +198,6 @@ public class ChoiceButton : MonoBehaviour
                 HudUI.SetActive(true);
 
                 Stranger.gameObject.SetActive(false);
-
-                if (Stranger.isTrueLove)
-                    Debug.Log("GAME OVER - You dumped your true love");
-
                 break;
             case 21://Date about yourself
 
@@ -254,6 +282,22 @@ public class ChoiceButton : MonoBehaviour
                 break;
             case 41://CONFESS!!!!!!!!!!!!!!!!!!!!!
 
+                if (Stranger.isTrueLove)
+                {
+                    EndingUIHeader.text = "You confessed to your TRUE LOVE!";
+
+                    AudioPlayer.clip = GoodAudio;
+                    AudioPlayer.Play();
+                }
+                else
+                {
+                    EndingUIHeader.text = "She DECLINED your love!";
+                    AudioPlayer.clip = BadAudio;
+                    AudioPlayer.Play();
+                }
+
+                ConversationUI.SetActive(false);
+                EndingUI.SetActive(true);
                 break;
             default:
                 break;

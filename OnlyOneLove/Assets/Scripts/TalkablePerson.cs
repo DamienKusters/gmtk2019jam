@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class TalkablePerson : MonoBehaviour
 {
+    public int strangerId;
+
     public ChoiceButton ConversationManager;
     public bool CanBeClicked = true;
 
@@ -19,10 +21,13 @@ public class TalkablePerson : MonoBehaviour
     public bool knowsLocation = false;
     public bool knowsAnimal = false;
     public bool uitgepraat = false;
+    public bool isDuplicate = false;
 
     public int FavGiftId = 1;
-    public string Greeting = "Hallo Pik!";
+    public string Greeting = "Hello";
     public Sprite Sprite;
+
+    public AudioSource hoverSoundPlayer;
 
     // Start is called before the first frame update
     void Start()
@@ -115,7 +120,10 @@ public class TalkablePerson : MonoBehaviour
     void OnMouseEnter()
     {
         if (CanBeClicked)
+        {
+            hoverSoundPlayer.Play();
             transform.localScale += new Vector3(1F, 1F, 1F);
+        }
     }
 
     void OnMouseExit()

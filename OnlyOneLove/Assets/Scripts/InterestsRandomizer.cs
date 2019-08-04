@@ -21,33 +21,66 @@ public class InterestsRandomizer : MonoBehaviour
 
     void Start()
     {
-        /*
+        
+
+        //Randomize stranger interests
+        for (int i = 0; i < strangers.Length; i++)
+        {
+            GiveStrangerRandomInterests(strangers[i]);
+        }
+
+        MakeStrangersUnique(strangers);
+
+        int trueLoveId = Random.Range(0,5);
+        strangers[trueLoveId].isTrueLove = true;//Set true love
+
         //Initialize player interests
-        playerHobbyId = Random.Range(0,3);
-        playerLocationId = Random.Range(0,3);
-        playerAnimalId = Random.Range(0,3);
-        */
+        playerHobbyId = strangers[trueLoveId].HobbyId;
+        playerLocationId = strangers[trueLoveId].LocationId;
+        playerAnimalId = strangers[trueLoveId].AnimalId;
+
+        Debug.Log(strangers[trueLoveId].strangerId + " is the ONE");// D E B U G ###############################
 
         //Render player interest on screen
         RenderPlayerInterests();
-
-        for (int i = 0; i < strangers.Length; i++)
-        {
-            strangers[i].HobbyId = Random.Range(0, 3);
-            strangers[i].LocationId = Random.Range(0, 3);
-            strangers[i].AnimalId = Random.Range(0, 3);
-        }
     }
     
-    List<TalkablePerson> GetDuplicateStrangers()
+    void MakeStrangersUnique(TalkablePerson[] _strangers)
     {
-        List<TalkablePerson> duplicates = new List<TalkablePerson>();
-
-        for (int i = 0; i < duplicates.Capacity; i++)
+        for (int i = 0; i < _strangers.Length; i++)
         {
-
+            do
+            {
+                GiveStrangerRandomInterests(_strangers[i]);
+                SetFlagIfDuplicate(_strangers[i], _strangers);//This method marks the current stranger as duplicate
+            } while (_strangers[i].isDuplicate);
         }
-        return duplicates;
+    }
+
+    void GiveStrangerRandomInterests(TalkablePerson _stranger)
+    {
+        _stranger.HobbyId = Random.Range(0, 3);
+        _stranger.LocationId = Random.Range(0, 3);
+        _stranger.AnimalId = Random.Range(0, 3);
+    }
+
+    void SetFlagIfDuplicate(TalkablePerson _stranger, TalkablePerson[] _strangers)
+    {
+        foreach (var person in _strangers)
+        {
+            //Check if one of the duplicates matches 
+            if (person.HobbyId == _stranger.HobbyId &&
+                person.LocationId == _stranger.LocationId &&
+                person.AnimalId == _stranger.AnimalId)
+            {
+                if(person.strangerId != _stranger.strangerId)//If the person is not checking herself
+                {
+                    _stranger.isDuplicate = true;//Set flag
+                    return;//Cancel method
+                }
+            }
+        }
+        _stranger.isDuplicate = false;//If the person doesn't match it means it's unique
     }
 
     void RenderPlayerInterests()
@@ -99,6 +132,5 @@ public class InterestsRandomizer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

@@ -8,6 +8,9 @@ public class Store : MonoBehaviour
     public bool CanBeClicked = true;
     public int ProductId;
 
+    public AudioSource hoverSoundPlayer;
+    public AudioSource clickoverSoundPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,7 @@ public class Store : MonoBehaviour
     {
         if (CanBeClicked)
         {
+            clickoverSoundPlayer.Play();
             transform.localScale = new Vector3(2F, 2F, 2F);
             Inventory.ItemId = ProductId;
         }
@@ -32,7 +36,10 @@ public class Store : MonoBehaviour
     void OnMouseEnter()
     {
         if (CanBeClicked)
+        {
+            hoverSoundPlayer.Play();
             transform.localScale += new Vector3(.1F, .1F, .1F);
+        }
     }
 
     void OnMouseExit()

@@ -116,7 +116,7 @@ MonoBehaviour:
   m_MinSize: {x: 913, y: 322}
   m_MaxSize: {x: 22008, y: 10022}
   vertical: 0
-  controlID: 111
+  controlID: 31
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -384,9 +384,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 7e340000
-      m_LastClickedID: 13438
-      m_ExpandedIDs: e2e6ffff34eaffff32faffff76fbffffa63300007e340000
+      m_SelectedIDs: 76fbffff
+      m_LastClickedID: -1162
+      m_ExpandedIDs: 0e6bffff3a6bffffeccfffff76fbffff3e320000e23200006833000086330000d23300007a340000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -446,9 +446,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 477.21002, y: 338.10934, z: -155.08}
+    m_Target: {x: 0.045350075, y: -0.021399736, z: -2.056572}
     speed: 2
-    m_Value: {x: 477.21002, y: 338.10934, z: -155.08}
+    m_Value: {x: 0.045350075, y: -0.021399736, z: -2.056572}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -481,9 +481,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 596.5365
+    m_Target: 7.3103337
     speed: 2
-    m_Value: 596.5365
+    m_Value: 7.3103337
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -1486
+  m_LastSelectedObjectID: 13628
 --- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -603,19 +603,19 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 48
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: 48
   m_LastProjectPath: H:\gmtk2019jam\OnlyOneLove
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 282d0000
-    m_LastClickedID: 11560
+    m_SelectedIDs: ec2e0000
+    m_LastClickedID: 12012
     m_ExpandedIDs: 00000000282d00004430000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0

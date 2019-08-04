@@ -6,10 +6,13 @@ public class CreditsDisplay : MonoBehaviour
 {
     public GameObject Hud;
     public float timeLeft = 4;
+    public PeopleSpawner PeopleManager;
+    public BuildingsManager BuildingManager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        PeopleManager.EnableClicksOnChildren(false);
+        BuildingManager.EnableClicksOnChildren(false);
     }
 
     // Update is called once per frame
