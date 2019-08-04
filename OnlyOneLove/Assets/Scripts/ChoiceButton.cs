@@ -282,16 +282,25 @@ public class ChoiceButton : MonoBehaviour
                 break;
             case 41://CONFESS!!!!!!!!!!!!!!!!!!!!!
 
-                if (Stranger.isTrueLove)
+                if(Stranger.isTrueLove)
                 {
-                    EndingUIHeader.text = "You confessed to your TRUE LOVE!";
+                    if(Stranger.knowsHobby && Stranger.knowsLocation && Stranger.knowsAnimal)
+                    {
+                        EndingUIHeader.text = "You confessed to your TRUE LOVE! - You WIN!";
 
-                    AudioPlayer.clip = GoodAudio;
-                    AudioPlayer.Play();
+                        AudioPlayer.clip = GoodAudio;
+                        AudioPlayer.Play();
+                    }
+                    else
+                    {
+                        EndingUIHeader.text = "Your true love DECLINED you!, she didn't knew you so well...";
+                        AudioPlayer.clip = BadAudio;
+                        AudioPlayer.Play();
+                    }
                 }
                 else
                 {
-                    EndingUIHeader.text = "She DECLINED your love!";
+                    EndingUIHeader.text = "She sadly DECLINED your love!";
                     AudioPlayer.clip = BadAudio;
                     AudioPlayer.Play();
                 }
